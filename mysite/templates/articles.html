@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+	{% block article %}
+	<div class = "large-8 colomuns">
+		{% for article in articles %}
+			<h4><a href="{% url 'article' article_id=article.id %}">{{ article.article_title }}</a></h4>
+			<p>{{ article.article_text }}</p>
+			<h6>Publication Date:{{article.article_date}}</h6>
+			<p><a href="{% url 'addlike' article_id=article.id %}"><img src = "{% static "images/Like.png" %}" width = "25px" height = "25px" alt="like image"></a>Likes: {{ article.article_likes }}</p>
+		{% endfor %}
+	{% endblock %}
+

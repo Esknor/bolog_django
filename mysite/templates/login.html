@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block login %}
+	<div class="large-offset-3 large-6 columns">
+		<form action="{% url 'login' %}" method="post">
+			{% csrf_token %}
+			<label for="username">User name</label>
+			<input type="text" name="username" id="password">
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password">
+			{% if login_error %}
+				<label class="error">{{ login_error }}</label>
+			{% endif %}
+			<input class="button" type="submit" value="Enter">
+			<div class="large round secondary"><a href="{% url 'register' %}">Registration</a></div>
+		</form>
+	</div>
+{% endblock %}
+
